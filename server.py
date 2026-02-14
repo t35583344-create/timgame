@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 import mimetypes
 import os
+import random
 import time
 import uuid
-import random
 from dataclasses import dataclass
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -182,8 +182,17 @@ class Handler(BaseHTTPRequestHandler):
         self.send_error(HTTPStatus.NOT_FOUND, "Not Found")
 
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "3000"))
-    server = ThreadingHTTPServer(("0.0.0.0", port), Handler)
-    print(f"Game server running at http://localhost:{port}")
+def create_http_server(host: str, port: int) -> ThreadingHTTPServer:
+    return ThreadingHTTPServer((host, port), Handler)
+
+
+def run_server(host: str, port: int) -> None:
+    server = create_http_server(host, port)
+    print(f"Game server running at http://{host}:{port}")
     server.serve_forever()
+
+
+if __name__ == "__main__":
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", "3000"))
+    run_server(host, port)
