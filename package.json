@@ -1,0 +1,6 @@
+{
+  "name": "timgame",
+  "version": "1.0.1",
+  "description": "Multiplayer cube sandbox game with Python backend",
+  "private": true
+}
