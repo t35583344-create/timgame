@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cube Grid Online</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="sidebar">
+        <h1 data-i18n="title">Cube Grid Online</h1>
+        <p data-i18n="description">
+          Multiplayer-песочница: двигайтесь на WASD, ставьте блоки и удаляйте их.
+        </p>
+        <ul>
+          <li data-i18n="move">WASD — движение</li>
+          <li data-i18n="place">Q или ЛКМ — поставить блок</li>
+          <li data-i18n="remove">E или ПКМ — удалить блок</li>
+        </ul>
+        <p><strong data-i18n="grid">Сетка: 50 × 40</strong></p>
+        <p id="status" data-i18n="connecting">Подключение...</p>
+      </section>
+      <section class="canvas-wrap">
+        <canvas id="game" width="1000" height="800" aria-label="Game grid"></canvas>
+      </section>
+    </main>
+
+    <script src="client.js"></script>
+  </body>
+</html>
